@@ -26,4 +26,7 @@ def parse_api_hash(text: str) -> str:
 
 
 def parse_group_numbers(text: str) -> List[int]:
-    return [int(i) for i in text.split(" ") if i]
+    try:
+        return [int(i) for i in text.split(" ") if i]
+    except ValueError:
+        raise errors.ParsingError()
